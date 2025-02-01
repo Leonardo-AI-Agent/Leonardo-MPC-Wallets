@@ -1,0 +1,150 @@
+{
+  "info": {
+    "_postman_id": "d8f9c21f-6f3a-4a68-9a3e-123456789abc",
+    "name": "MPC Wallet Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Wallet",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/create?network_id=base-sepolia",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "create"],
+          "query": [
+            {
+              "key": "network_id",
+              "value": "base-sepolia"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Import Wallet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"encrypted_seed\": \"MOCK_ENCRYPTED_SEED_DATA_GOES_HERE\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/import",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "import"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export Wallet",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/export",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "export"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Retrieve Balances",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/balances",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "balances"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Address",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/address",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "address"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Execute Gasless Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"wallet_id\": \"your-wallet-id\",\n    \"to_address\": \"recipient-address\",\n    \"amount\": \"1000000\",\n    \"asset\": \"USDC\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/transaction/gasless",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["transaction", "gasless"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Webhook",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"callback_url\": \"https://your-server.com/webhook\"\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/wallet/webhook",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["wallet", "webhook"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
